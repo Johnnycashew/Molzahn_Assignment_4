@@ -67,6 +67,10 @@ router.post('/register', function(req, res){
                     res.redirect('/users/login');
                 }).catch(function(err){
                     console.log(err);
+                    errors.push({err:err});
+                    res.render('/users/register', {
+                        errors:errors
+                    });
                     return;
                 });
             });
