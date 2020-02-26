@@ -13,8 +13,6 @@ var db = require('./helper/database');
 var games = require('./routes/games');
 var users = require('./routes/users');
 
-var Game = mongoose.model('games');
-
 //  Load passport
 require('./config/passport')(passport);
 
@@ -72,16 +70,6 @@ app.get('/', function(req, res){
     });
 });
 
-app.get('/allgames', function(req, res){
-    Game.find().then(function(games){
-        console.log("Fetch Route ");
-        console.log(games);
-        res.render('gameentry/allentries',{
-            games:games
-        });
-    });
-});
-
 app.get('/about', function(req, res){
     res.render('about');
 });
@@ -95,4 +83,17 @@ var port = process.env.PORT || 5000;
 
 app.listen(port, function(){
     console.log("Game Library running on port 5000");
+});
+
+app.get('/allgames', function(req, res){
+    var User = mongoose.model('users');
+    var Game = mongoose.model('games');
+
+    Game.find({
+        user:User.games
+    }).then(function(games){
+            res.render('gameentry/allentries', {
+            games:games
+        });
+    });
 });
