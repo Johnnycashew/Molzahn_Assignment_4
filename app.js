@@ -13,6 +13,8 @@ var db = require('./helper/database');
 var games = require('./routes/games');
 var users = require('./routes/users');
 
+var Game = mongoose.model('games');
+
 //  Load passport
 require('./config/passport')(passport);
 
@@ -67,6 +69,16 @@ app.get('/', function(req, res){
     var title = "Welcome to the Game Library App"
     res.render('index',{
         title:title
+    });
+});
+
+app.get('/allgames', function(req, res){
+    Game.find().then(function(games){
+        console.log("Fetch Route ");
+        console.log(games);
+        res.render('gameentry/allentries',{
+            games:games
+        });
     });
 });
 

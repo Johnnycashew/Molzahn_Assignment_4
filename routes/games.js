@@ -22,16 +22,6 @@ router.get('/games', ensureAuthenticated, function(req, res){
     
 });
 
-router.get('/allgames', function(req, res){
-    Game.find().then(function(games){
-        console.log("Fetch Route ");
-        console.log(games);
-        res.render('gameentry/allentries',{
-            games:games
-        });
-    });
-});
-
 router.get('/gameentry/gameentryadd', ensureAuthenticated, function(req, res){
     res.render('gameentry/gameentryadd');
 });
