@@ -71,10 +71,8 @@ app.get('/', function(req, res){
 });
 
 app.get('/allgames', function(req, res){
-    var users = db.users;
-    var games = db.games;
     res.render('gameentry/allentries', {
-        games: games
+        games:games
     });
 });
 
