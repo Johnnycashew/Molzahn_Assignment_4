@@ -70,6 +70,10 @@ app.get('/', function(req, res){
     });
 });
 
+app.get('/allgames', function(req, res){
+    res.render('gameentry/allentries');
+});
+
 app.get('/about', function(req, res){
     res.render('about');
 });

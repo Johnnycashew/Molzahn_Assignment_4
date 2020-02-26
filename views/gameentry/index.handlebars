@@ -5,8 +5,8 @@
     <p>{{description}}</p>
     <a href="/game/gameentry/gameentryedit/{{id}}" class="btn btn-block btn-dark">Edit Game Info</a>
     <form action="/game/gamedelete/{{id}}?_method=DELETE" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" class="btn btn-block btn-danger" value="Delete Game">    
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" class="btn btn-block btn-danger" value="Delete Game">
     </form>
 </div>
 {{else}}
