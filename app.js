@@ -90,7 +90,7 @@ app.get('/allgames', function(req, res){
     var Game = mongoose.model('games');
 
     Game.find({
-        user:User.games
+        user:User
     }).then(function(games){
             res.render('gameentry/allentries', {
             games:games
