@@ -71,7 +71,10 @@ app.get('/', function(req, res){
 });
 
 app.get('/allgames', function(req, res){
-    res.render('gameentry/allentries');
+    res.render('gameentry/allentries', {
+        users: users,
+        games: games
+    });
 });
 
 app.get('/about', function(req, res){
