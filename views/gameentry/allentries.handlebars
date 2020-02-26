@@ -1,23 +1,10 @@
-{{#each user}}
-
-    {{#each games}}
-
-        <div class="card card-body">
-            <h4>{{title}}</h4>
-            <p>{{price}}</p>
-            <p>{{description}}</p>
-        </div>
-
-        <br>
-
-    {{else}}
-        <p>This user has no entries at this time.</p>
-    {{/each}}
-
-    <hr>
-
+{{#each games}}
+<div class="card card-body">
+    <h4>{{title}}</h4>
+    <p>{{price}}</p>
+    <p>{{description}}</p>    
+</div>
+<br>
 {{else}}
-
-    <p>There are no users at this time.</p>
-
+<p>No Game Entries Found</p>
 {{/each}}
