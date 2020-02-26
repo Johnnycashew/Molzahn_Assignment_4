@@ -22,6 +22,16 @@ router.get('/games', ensureAuthenticated, function(req, res){
     
 });
 
+router.get('/allgames', function(req, res){
+    Game.find({
+        user:user.id
+    }).then(function(games){
+        res.render('gameentry/allentries', {
+            games:games
+        });
+    });
+});
+
 router.get('/gameentry/gameentryadd', ensureAuthenticated, function(req, res){
     res.render('gameentry/gameentryadd');
 });
