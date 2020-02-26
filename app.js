@@ -84,16 +84,3 @@ var port = process.env.PORT || 5000;
 app.listen(port, function(){
     console.log("Game Library running on port 5000");
 });
-
-app.get('/allgames', function(req, res){
-    var User = mongoose.model('users');
-    var Game = mongoose.model('games');
-
-    Game.find({
-        user:User
-    }).then(function(games){
-            res.render('gameentry/allentries', {
-            games:games
-        });
-    });
-});
