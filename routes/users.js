@@ -68,7 +68,7 @@ router.post('/register', function(req, res){
                 }).catch(function(err){
                     console.log(err);
                     errors.push({err:err});
-                    res.render('/users/register', {
+                    res.render('users/register', {
                         errors:errors
                     });
                     return;

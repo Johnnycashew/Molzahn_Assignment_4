@@ -9,6 +9,14 @@ var Game = mongoose.model('games');
 
 
 //  Game Entry Crud route
+
+
+router.get('/titles', function(req, res){
+    res.render('gameentry/titles',{
+        games:games
+    });
+});
+
 router.get('/games', ensureAuthenticated, function(req, res){
     Game.find({
         user:req.user.id

@@ -70,6 +70,26 @@ app.get('/', function(req, res){
     });
 });
 
+app.get('/titles', function(req, res){
+    var Game = mongoose.model('games');
+    var Users = mongoose.model('users');
+
+    Game.find().then(function(titles){
+        Users.find().then(function(account){
+            //console.log(titles[0].user);
+            //console.log(account[0]._id);
+            res.render('gameentry/titles',{
+                users:account,
+                games:titles
+            });
+        });
+    });
+
+    //res.render('gameentry/titles',{
+    //    games:db.games
+    //});
+});
+
 app.get('/about', function(req, res){
     res.render('about');
 });
