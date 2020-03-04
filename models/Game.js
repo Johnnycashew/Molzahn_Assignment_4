@@ -14,6 +14,9 @@ var GameSchema = new Schema({
     user:{
         type:String,
         required:true
+    },
+    owner:{
+        type:String
     }
 });
 

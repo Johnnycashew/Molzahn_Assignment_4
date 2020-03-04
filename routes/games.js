@@ -9,8 +9,6 @@ var Game = mongoose.model('games');
 
 
 //  Game Entry Crud route
-
-
 router.get('/titles', function(req, res){
     res.render('gameentry/titles',{
         games:games
@@ -21,8 +19,18 @@ router.get('/games', ensureAuthenticated, function(req, res){
     Game.find({
         user:req.user.id
     }).then(function(games){
-        console.log("Fetch Route ");
-        console.log(games);
+        //  console.log("Fetch Route ");
+        //  console.log(games);
+
+        //  Sort the titles by Game Name
+        games.sort(function (a, b) {
+            var x = a.title;
+            var y = b.title;
+            if (x < y) { return -1; }
+            if (x > y) { return 1; }
+            return 0;
+        });
+
         res.render('gameentry/index',{
             games:games
         });
