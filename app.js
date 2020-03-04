@@ -76,8 +76,15 @@ app.get('/titles', function(req, res){
 
     Game.find().then(function(titles){
         Users.find().then(function(account){
-            //console.log(titles[0].user);
-            //console.log(account[0]._id);
+            
+            for (var i = 0; i < account.length; i++)
+            {
+                console.log(titles[i].title[0]);
+                // console.log(account[i].name);
+                // console.log(account[i]._id);
+            }
+            
+            
             res.render('gameentry/titles',{
                 users:account,
                 games:titles
